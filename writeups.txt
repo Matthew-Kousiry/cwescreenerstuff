@@ -1,0 +1,6 @@
+strings:
+	simply string the binary for the flag
+rev:
+	viewing the program in ghidra shows us the overall main function. there we see a do while loop that returns when each char in the input has been verified. we can see the first four bytes are intiialized in the main function, but the actual full word is later in ghidra after doing some poking around. converting each hex char to ascii gets us the flag
+beleaf:
+	desired output variable (after looking through main function in ghidra) contains a list of memory addresses and somethign like a 01h in between a bunch of 00h. looking in the transform function in the bss array and seeing each char stored in the array gives us chars and their location. when you apply the transform function for each 01h, 09h, etc, itll give the location of the char in the lookup array to be used fo the flag.
